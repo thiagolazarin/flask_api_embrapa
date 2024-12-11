@@ -46,8 +46,8 @@ intro_api/
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/ileoh/flask_exemplo
-cd my_flask_app
+gh repo clone thiagolazarin/flask_api_embrapa
+cd flask_api_embrapa
 ```
 
 ### 2. Crie um Ambiente Virtual
