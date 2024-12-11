@@ -90,12 +90,3 @@ Acesse a aplicação em `http://localhost:5000`.
 ## 📖 Documentação da API
 
 A documentação da API é gerada automaticamente com Swagger e está disponível em `http://localhost:5000/apidocs/`.
-
-## 🤝 Contribuindo
-
-1. Fork este repositório.
-2. Crie sua branch (`git checkout -b feature/nova-funcionalidade`).
-3. Faça commit das suas alterações (`git commit -m 'Adiciona nova funcionalidade'`).
-4. Faça push para sua branch (`git push origin feature/nova-funcionalidade`).
-5. Abra um Pull Request.
-instalar, configurar e usar o projeto. Ele também cobre contribuições, contato, licença e agradecimentos, tornando-o completo e fácil de entender para novos desenvolvedores.
