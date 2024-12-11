@@ -90,3 +90,7 @@ Acesse a aplicação em `http://localhost:5000`.
 ## 📖 Documentação da API
 
 A documentação da API é gerada automaticamente com Swagger e está disponível em `http://localhost:5000/apidocs/`.
+
+## Hospedagem Vercel
+
+Link para acessar os links das APIs: `https://flask-api-embrapa-8t2gqh3js-thiagos-projects-2d016169.vercel.app/`.
