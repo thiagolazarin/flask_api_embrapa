@@ -11,7 +11,7 @@ def get_producao_data():
 
     for ano in range(primeiro_ano, ultimo_ano + 1):
         url = f"{base_url}&ano={ano}"
-        response = requests.get(url)
+        response = requests.get(url, timeout=60)
         
         if response.status_code != 200:
             print(f"Erro ao buscar dados do ano {ano}")
