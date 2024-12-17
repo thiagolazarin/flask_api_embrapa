@@ -10,7 +10,7 @@ def home():
 
 @app.route('/api/producao', methods=['GET'])
 @auth.login_required
-@cache.cached(timeout=86400)
+@cache.cached()
 def producao():
 
     """
@@ -45,7 +45,7 @@ def producao():
 
 @app.route('/api/processamento', methods=['GET'])
 @auth.login_required
-@cache.cached(timeout=86400)
+@cache.cached()
 def processamento():
 
     """
@@ -80,7 +80,7 @@ def processamento():
 
 @app.route('/api/comercializacao', methods=['GET'])
 @auth.login_required
-@cache.cached(timeout=86400)
+@cache.cached()
 def comercializacao():
 
     """
@@ -115,7 +115,7 @@ def comercializacao():
 
 @app.route('/api/importacao', methods=['GET'])
 @auth.login_required
-@cache.cached(timeout=86400)
+@cache.cached()
 def importacao():
 
     """
@@ -152,7 +152,7 @@ def importacao():
 
 @app.route('/api/exportacao', methods=['GET'])
 @auth.login_required
-@cache.cached(timeout=86400)
+@cache.cached()
 def exportacao():
 
     """
