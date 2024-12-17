@@ -3,96 +3,160 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 def get_producao_data():
-    url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+    all_data = [] 
+    base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02"
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': 'tb_base tb_dados'})
-    linhas_tabela = table.find_all('tr')
+    primeiro_ano = 1970
+    ultimo_ano = 2023
 
-    dados = []
-    for linha in linhas_tabela:
-        cells = linha.find_all(['th', 'td'])
-        cells_text = [cell.get_text(strip=True) for cell in cells]
-        dados.append(cells_text)
+    for ano in range(primeiro_ano, ultimo_ano + 1):
+        url = f"{base_url}&ano={ano}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            print(f"Erro ao buscar dados do ano {ano}")
+            continue
 
-    df = pd.DataFrame(dados[1:], columns=dados[0])
-    return df
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'class': 'tb_base tb_dados'})
+        linhas_tabela = table.find_all('tr')
+
+        dados = []
+        for linha in linhas_tabela:
+            cells = linha.find_all(['th', 'td'])
+            cells_text = [cell.get_text(strip=True) for cell in cells]
+            dados.append(cells_text)
+
+        df = pd.DataFrame(dados[1:], columns=dados[0])
+        df['Ano'] = ano
+        all_data.append(df)
+
+    final_df = pd.concat(all_data, ignore_index=True)
+    return final_df
 
 def get_processamento_data():
-    url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+    all_data = [] 
+    base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03"
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': 'tb_base tb_dados'})
-    linhas_tabela = table.find_all('tr')
+    primeiro_ano = 1970
+    ultimo_ano = 2023
 
-    dados = []
-    for linha in linhas_tabela:
-        cells = linha.find_all(['th', 'td'])
-        cells_text = [cell.get_text(strip=True) for cell in cells]
-        dados.append(cells_text)
+    for ano in range(primeiro_ano, ultimo_ano + 1):
+        url = f"{base_url}&ano={ano}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            print(f"Erro ao buscar dados do ano {ano}")
+            continue
 
-    df = pd.DataFrame(dados[1:], columns=dados[0])
-    return df
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'class': 'tb_base tb_dados'})
+        linhas_tabela = table.find_all('tr')
+
+        dados = []
+        for linha in linhas_tabela:
+            cells = linha.find_all(['th', 'td'])
+            cells_text = [cell.get_text(strip=True) for cell in cells]
+            dados.append(cells_text)
+
+        df = pd.DataFrame(dados[1:], columns=dados[0])
+        df['Ano'] = ano
+        all_data.append(df)
+
+    final_df = pd.concat(all_data, ignore_index=True)
+    return final_df
 
 def get_comercializacao_data():
-    url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+    all_data = [] 
+    base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04"
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': 'tb_base tb_dados'})
-    linhas_tabela = table.find_all('tr')
+    primeiro_ano = 1970
+    ultimo_ano = 2023
 
-    dados = []
-    for linha in linhas_tabela:
-        cells = linha.find_all(['th', 'td'])
-        cells_text = [cell.get_text(strip=True) for cell in cells]
-        dados.append(cells_text)
+    for ano in range(primeiro_ano, ultimo_ano + 1):
+        url = f"{base_url}&ano={ano}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            print(f"Erro ao buscar dados do ano {ano}")
+            continue
 
-    df = pd.DataFrame(dados[1:], columns=dados[0])
-    return df
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'class': 'tb_base tb_dados'})
+        linhas_tabela = table.find_all('tr')
 
+        dados = []
+        for linha in linhas_tabela:
+            cells = linha.find_all(['th', 'td'])
+            cells_text = [cell.get_text(strip=True) for cell in cells]
+            dados.append(cells_text)
+
+        df = pd.DataFrame(dados[1:], columns=dados[0])
+        df['Ano'] = ano
+        all_data.append(df)
+
+    final_df = pd.concat(all_data, ignore_index=True)
+    return final_df
 def get_importacao_data():
-    url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+    all_data = [] 
+    base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05"
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': 'tb_base tb_dados'})
-    linhas_tabela = table.find_all('tr')
+    primeiro_ano = 1970
+    ultimo_ano = 2023
 
-    dados = []
-    for linha in linhas_tabela:
-        cells = linha.find_all(['th', 'td'])
-        cells_text = [cell.get_text(strip=True) for cell in cells]
-        dados.append(cells_text)
+    for ano in range(primeiro_ano, ultimo_ano + 1):
+        url = f"{base_url}&ano={ano}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            print(f"Erro ao buscar dados do ano {ano}")
+            continue
 
-    df = pd.DataFrame(dados[1:], columns=dados[0])
-    return df
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'class': 'tb_base tb_dados'})
+        linhas_tabela = table.find_all('tr')
+
+        dados = []
+        for linha in linhas_tabela:
+            cells = linha.find_all(['th', 'td'])
+            cells_text = [cell.get_text(strip=True) for cell in cells]
+            dados.append(cells_text)
+
+        df = pd.DataFrame(dados[1:], columns=dados[0])
+        df['Ano'] = ano
+        all_data.append(df)
+
+    final_df = pd.concat(all_data, ignore_index=True)
+    return final_df
 
 def get_exportacao_data():
-    url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+    all_data = [] 
+    base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06"
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    table = soup.find('table', {'class': 'tb_base tb_dados'})
-    linhas_tabela = table.find_all('tr')
+    primeiro_ano = 1970
+    ultimo_ano = 2023
 
-    dados = []
-    for linha in linhas_tabela:
-        cells = linha.find_all(['th', 'td'])
-        cells_text = [cell.get_text(strip=True) for cell in cells]
-        dados.append(cells_text)
+    for ano in range(primeiro_ano, ultimo_ano + 1):
+        url = f"{base_url}&ano={ano}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            print(f"Erro ao buscar dados do ano {ano}")
+            continue
 
-    df = pd.DataFrame(dados[1:], columns=dados[0])
-    return df
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', {'class': 'tb_base tb_dados'})
+        linhas_tabela = table.find_all('tr')
+
+        dados = []
+        for linha in linhas_tabela:
+            cells = linha.find_all(['th', 'td'])
+            cells_text = [cell.get_text(strip=True) for cell in cells]
+            dados.append(cells_text)
+
+        df = pd.DataFrame(dados[1:], columns=dados[0])
+        df['Ano'] = ano
+        all_data.append(df)
+
+    final_df = pd.concat(all_data, ignore_index=True)
+    return final_df
