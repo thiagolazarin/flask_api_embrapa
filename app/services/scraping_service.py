@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from app.utils.database import save_dataframe_to_db
 
 def get_producao_data():
     all_data = [] 
@@ -32,7 +33,10 @@ def get_producao_data():
         all_data.append(df)
 
     final_df = pd.concat(all_data, ignore_index=True)
-    return final_df
+
+    # Salvar no banco:
+    save_dataframe_to_db(final_df, "producao")
+    #return final_df
 
 def get_processamento_data():
     all_data = [] 
@@ -64,7 +68,10 @@ def get_processamento_data():
         all_data.append(df)
 
     final_df = pd.concat(all_data, ignore_index=True)
-    return final_df
+    
+    # Salvar no banco:
+    save_dataframe_to_db(final_df, "processamento")
+    #return final_df
 
 def get_comercializacao_data():
     all_data = [] 
@@ -96,7 +103,11 @@ def get_comercializacao_data():
         all_data.append(df)
 
     final_df = pd.concat(all_data, ignore_index=True)
-    return final_df
+    
+    # Salvar no banco:
+    save_dataframe_to_db(final_df, "comercializacao")
+    #return final_df
+
 def get_importacao_data():
     all_data = [] 
     base_url = "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05"
@@ -127,7 +138,10 @@ def get_importacao_data():
         all_data.append(df)
 
     final_df = pd.concat(all_data, ignore_index=True)
-    return final_df
+        
+    # Salvar no banco:
+    save_dataframe_to_db(final_df, "importacao")
+    #return final_df
 
 def get_exportacao_data():
     all_data = [] 
@@ -159,4 +173,7 @@ def get_exportacao_data():
         all_data.append(df)
 
     final_df = pd.concat(all_data, ignore_index=True)
-    return final_df
+        
+    # Salvar no banco:
+    save_dataframe_to_db(final_df, "exportacao")
+    #return final_df
