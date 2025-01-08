@@ -16,7 +16,7 @@ def save_dataframe_to_db(df, table_name):
     """
     conn = get_connection()
     
-    # Salvar no banco, ignorando duplicatas
-    df.to_sql(table_name, conn, if_exists='overwrite', index=False, method='multi')
+    # Salvar no banco, sobrescrevendo a tabela, se existir
+    df.to_sql(table_name, conn, if_exists='replace', index=False)
     
     conn.close()
